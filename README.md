@@ -1,13 +1,14 @@
-# DankMaterialShell
+
+
 
 <div align="center">
   <a href="https://danklinux.com">
     <img src="assets/danklogo.svg" alt="DankMaterialShell" width="200">
   </a>
 
-### A modern desktop shell for Wayland
+### 一款现代化的 Wayland 桌面外壳
 
-Built with [Quickshell](https://quickshell.org/) and [Go](https://go.dev/)
+基于 [Quickshell](https://quickshell.org/) 和 [Go](https://go.dev/) 构建
 
 [![Documentation](https://img.shields.io/badge/docs-danklinux.com-9ccbfb?style=for-the-badge&labelColor=101418)](https://danklinux.com/docs)
 [![GitHub stars](https://img.shields.io/github/stars/AvengeMedia/DankMaterialShell?style=for-the-badge&labelColor=101418&color=ffd700)](https://github.com/AvengeMedia/DankMaterialShell/stargazers)
@@ -19,31 +20,31 @@ Built with [Quickshell](https://quickshell.org/) and [Go](https://go.dev/)
 
 </div>
 
-DankMaterialShell is a complete desktop shell for [niri](https://github.com/YaLTeR/niri), [Hyprland](https://hyprland.org/), [MangoWC](https://github.com/DreamMaoMao/mangowc), [Sway](https://swaywm.org), [labwc](https://labwc.github.io/), [Scroll](https://github.com/dawsers/scroll), [Miracle WM](https://github.com/miracle-wm-org/miracle-wm), and other Wayland compositors. It replaces waybar, swaylock, swayidle, mako, fuzzel, polkit, and everything else you'd normally stitch together to make a desktop.
+DankMaterialShell 是一个为 [niri](https://github.com/YaLTeR/niri)、[Hyprland](https://hyprland.org/)、[MangoWC](https://github.com/DreamMaoMao/mangowc)、[Sway](https://swaywm.org)、[labwc](https://labwc.github.io/)、[Scroll](https://github.com/dawsers/scroll)、[Miracle WM](https://github.com/miracle-wm-org/miracle-wm) 以及其他 Wayland 合成器打造的完整桌面外壳。它将 waybar、swaylock、swayidle、mako、fuzzel、polkit 以及您通常需要拼凑起来以构建桌面环境的所有其他组件集于一身。
 
-## Repository Structure
+## 仓库结构
 
-This is a monorepo containing both the shell interface and the core backend services:
+这是一个包含外壳界面和核心后端服务的单体仓库：
 
 ```
 DankMaterialShell/
-├── quickshell/         # QML-based shell interface
-│   ├── Modules/        # UI components (panels, widgets, overlays)
-│   ├── Services/       # System integration (audio, network, bluetooth)
-│   ├── Widgets/        # Reusable UI controls
-│   └── Common/         # Shared resources and themes
-├── core/               # Go backend and CLI
-│   ├── cmd/            # dms CLI and dankinstall binaries
-│   ├── internal/       # System integration, IPC, distro support
-│   └── pkg/            # Shared packages
-├── distro/             # Distribution packaging
-│   ├── fedora/         # Fedora RPM specs
-│   ├── debian/         # Debian packaging
-│   └── nix/            # NixOS/home-manager modules
-└── flake.nix           # Nix flake for declarative installation
+├── quickshell/         # 基于 QML 的外壳界面
+│   ├── Modules/        # UI 组件（面板、小部件、覆盖层）
+│   ├── Services/       # 系统集成（音频、网络、蓝牙）
+│   ├── Widgets/        # 可复用的 UI 控件
+│   └── Common/         # 共享资源和主题
+├── core/               # Go 后端和 CLI
+│   ├── cmd/            # dms CLI 和 dankinstall 二进制文件
+│   ├── internal/       # 系统集成、IPC、发行版支持
+│   └── pkg/            # 共享包
+├── distro/             # 发行版打包
+│   ├── fedora/         # Fedora RPM 规范
+│   ├── debian/         # Debian 打包
+│   └── nix/            # NixOS/home-manager 模块
+└── flake.nix           # 用于声明式安装的 Nix flake
 ```
 
-## See it in Action
+## 效果预览
 
 <div align="center">
 
@@ -51,106 +52,106 @@ https://github.com/user-attachments/assets/1200a739-7770-4601-8b85-695ca527819a
 
 </div>
 
-<details><summary><strong>More Screenshots</strong></summary>
+<details><summary><strong>更多截图</strong></summary>
 
 <div align="center">
 
-<img src="https://github.com/user-attachments/assets/203a9678-c3b7-4720-bb97-853a511ac5c8" width="600" alt="Desktop" />
+<img src="https://github.com/user-attachments/assets/203a9678-c3b7-4720-bb97-853a511ac5c8" width="600" alt="桌面" />
 
-<img src="https://github.com/user-attachments/assets/a937cf35-a43b-4558-8c39-5694ff5fcac4" width="600" alt="Dashboard" />
+<img src="https://github.com/user-attachments/assets/a937cf35-a43b-4558-8c39-5694ff5fcac4" width="600" alt="仪表盘" />
 
-<img src="https://github.com/user-attachments/assets/2da00ea1-8921-4473-a2a9-44a44535a822" width="450" alt="Launcher" />
+<img src="https://github.com/user-attachments/assets/2da00ea1-8921-4473-a2a9-44a44535a822" width="450" alt="启动器" />
 
-<img src="https://github.com/user-attachments/assets/732c30de-5f4a-4a2b-a995-c8ab656cecd5" width="600" alt="Control Center" />
+<img src="https://github.com/user-attachments/assets/732c30de-5f4a-4a2b-a995-c8ab656cecd5" width="600" alt="控制中心" />
 
 </div>
 
 </details>
 
-## Installation
+## 安装
 
 ```bash
 curl -fsSL https://install.danklinux.com | sh
 ```
 
-One command installs DMS and all dependencies on Arch, Fedora, Debian, Ubuntu, openSUSE, or Gentoo.
+一条命令即可在 Arch、Fedora、Debian、Ubuntu、openSUSE 或 Gentoo 上安装 DMS 及其所有依赖。
 
-**[Manual installation guide](https://danklinux.com/docs/dankmaterialshell/installation)**
+**[手动安装指南](https://danklinux.com/docs/dankmaterialshell/installation)**
 
-## Features
+## 功能特性
 
-**Dynamic Theming**
-Wallpaper-based color schemes that automatically theme GTK, Qt, terminals, editors (vscode, vscodium), and more using [matugen](https://github.com/InioX/matugen) and dank16.
+**动态主题**
+基于壁纸的颜色方案，可使用 [matugen](https://github.com/InioX/matugen) 和 dank16 自动为 GTK、Qt、终端、编辑器（vscode, vscodium）等应用设置主题。
 
-**System Monitoring**
-Real-time CPU, RAM, GPU metrics and temperatures with [dgop](https://github.com/AvengeMedia/dgop). Process list with search and management.
+**系统监控**
+通过 [dgop](https://github.com/AvengeMedia/dgop) 实时监控 CPU、内存、GPU 指标和温度。提供进程列表，支持搜索和管理。
 
-**Powerful Launcher**
-Spotlight-style search for applications, files ([dsearch](https://github.com/AvengeMedia/danksearch)), emojis, running windows, calculator, and commands. Extensible with plugins.
+**强大的启动器**
+Spotlight 风格的搜索功能，可搜索应用程序、文件（[dsearch](https://github.com/AvengeMedia/danksearch)）、表情符号、正在运行的窗口，并支持计算器和命令执行。可通过插件扩展。
 
-**Control Center**
-Unified interface for network, Bluetooth, audio devices, display settings, and night mode.
+**控制中心**
+统一的界面，用于管理网络、蓝牙、音频设备、显示设置和夜间模式。
 
-**Smart Notifications**
-Notification center with grouping, rich text support, and keyboard navigation.
+**智能通知**
+通知中心，支持消息分组、富文本显示和键盘导航。
 
-**Media Integration**
-MPRIS player controls, calendar sync, weather widgets, and clipboard history with image previews.
+**媒体集成**
+支持 MPRIS 播放器控制、日历同步、天气小部件以及带图片预览的剪贴板历史。
 
-**Session Management**
-Lock screen, idle detection, auto-lock/suspend with separate AC/battery settings, and greeter support.
+**会话管理**
+提供锁屏、空闲检测、根据电源/电池状态自动锁定/挂起功能，并支持登录管理器。
 
-**Plugin System**
-Extend functionality with the [plugin registry](https://plugins.danklinux.com).
+**插件系统**
+通过[插件注册表](https://plugins.danklinux.com)扩展功能。
 
-## Supported Compositors
+## 支持的合成器
 
-Works best with [niri](https://github.com/YaLTeR/niri), [Hyprland](https://hyprland.org/), [Sway](https://swaywm.org/), [MangoWC](https://github.com/DreamMaoMao/mangowc), [labwc](https://labwc.github.io/), [Scroll](https://github.com/dawsers/scroll), and [Miracle WM](https://github.com/miracle-wm-org/miracle-wm) with full workspace switching, overview integration, and monitor management. Other Wayland compositors work with reduced features.
+与 [niri](https://github.com/YaLTeR/niri)、[Hyprland](https://hyprland.org/)、[Sway](https://swaywm.org/)、[MangoWC](https://github.com/DreamMaoMao/mangowc)、[labwc](https://labwc.github.io/)、[Scroll](https://github.com/dawsers/scroll) 和 [Miracle WM](https://github.com/miracle-wm-org/miracle-wm) 配合最佳，可完整支持工作区切换、概览集成和显示器管理。在其他 Wayland 合成器上，部分功能可能受限。
 
-[Compositor configuration guide](https://danklinux.com/docs/dankmaterialshell/compositors)
+[合成器配置指南](https://danklinux.com/docs/dankmaterialshell/compositors)
 
-## Command Line Interface
+## 命令行界面
 
-Control the shell from the command line or keybinds:
+通过命令行或按键绑定控制外壳：
 
 ```bash
-dms run              # Start the shell
+dms run              # 启动外壳
 dms ipc call spotlight toggle
 dms ipc call audio setvolume 50
 dms ipc call wallpaper set /path/to/image.jpg
-dms brightness list  # List available displays
-dms plugins search   # Browse plugin registry
+dms brightness list  # 列出可用显示器
+dms plugins search   # 浏览插件注册表
 ```
 
-[Full CLI and IPC documentation](https://danklinux.com/docs/dankmaterialshell/keybinds-ipc)
+[完整的 CLI 和 IPC 文档](https://danklinux.com/docs/dankmaterialshell/keybinds-ipc)
 
-## Documentation
+## 文档
 
-- **Website:** [danklinux.com](https://danklinux.com)
-- **Docs:** [danklinux.com/docs](https://danklinux.com/docs/)
-- **Theming:** [Application themes](https://danklinux.com/docs/dankmaterialshell/application-themes) | [Custom themes](https://danklinux.com/docs/dankmaterialshell/custom-themes)
-- **Plugins:** [Development guide](https://danklinux.com/docs/dankmaterialshell/plugins-overview)
-- **Support:** [Ko-fi](https://ko-fi.com/avengemediallc)
+- **网站:** [danklinux.com](https://danklinux.com)
+- **文档:** [danklinux.com/docs](https://danklinux.com/docs/)
+- **主题:** [应用程序主题](https://danklinux.com/docs/dankmaterialshell/application-themes) | [自定义主题](https://danklinux.com/docs/dankmaterialshell/custom-themes)
+- **插件:** [开发指南](https://danklinux.com/docs/dankmaterialshell/plugins-overview)
+- **支持:** [Ko-fi](https://ko-fi.com/avengemediallc)
 
-## Development
+## 开发
 
-See component-specific documentation:
+请参阅各组件的详细文档：
 
-- **[quickshell/](quickshell/)** - QML shell development, widgets, and modules
-- **[core/](core/)** - Go backend, CLI tools, and system integration
-- **[distro/](distro/)** - Distribution packaging (Fedora, Debian, NixOS)
+- **[quickshell/](quickshell/)** - QML 外壳开发、小部件和模块
+- **[core/](core/)** - Go 后端、CLI 工具和系统集成
+- **[distro/](distro/)** - 发行版打包（Fedora、Debian、NixOS）
 
-### Building from Source
+### 从源码构建
 
-**Core + Dankinstall:**
+**核心 + Dankinstall:**
 
 ```bash
 cd core
-make              # Build dms CLI
-make dankinstall  # Build installer
+make              # 构建 dms CLI
+make dankinstall  # 构建安装器
 ```
 
-**Shell:**
+**外壳:**
 
 ```bash
 quickshell -p quickshell/
@@ -162,34 +163,35 @@ quickshell -p quickshell/
 {
   inputs.dms.url = "github:AvengeMedia/DankMaterialShell";
 
-  # Use in home-manager or NixOS configuration
+  # 在 home-manager 或 NixOS 配置中使用
   imports = [ inputs.dms.homeModules.dank-material-shell ];
 }
 ```
 
-## Contributing
+## 贡献
 
-Contributions welcome. Bug fixes, widgets, features, documentation, and plugins all help.
+欢迎各种形式的贡献。修复 Bug、添加小部件、实现新功能、完善文档或开发插件，都将使项目变得更好。
 
-1. Fork the repository
-2. Make your changes
-3. Test thoroughly
-4. Open a pull request
+1. Fork 本仓库
+2. 进行您的修改
+3. 充分测试
+4. 提交 Pull Request
 
-For documentation contributions, see [DankLinux-Docs](https://github.com/AvengeMedia/DankLinux-Docs).
+如需贡献文档，请参阅 [DankLinux-Docs](https://github.com/AvengeMedia/DankLinux-Docs)。
 
-## Credits
+## 致谢
 
-- [quickshell](https://quickshell.org/) - Shell framework
-- [niri](https://github.com/YaLTeR/niri) - Scrolling window manager
-- [Ly-sec](http://github.com/ly-sec) - Wallpaper effects from [Noctalia](https://github.com/noctalia-dev/noctalia-shell)
-- [soramanew](https://github.com/soramanew) - [Caelestia](https://github.com/caelestia-dots/shell) inspiration
-- [end-4](https://github.com/end-4) - [dots-hyprland](https://github.com/end-4/dots-hyprland) inspiration
+- [quickshell](https://quickshell.org/) - 外壳框架
+- [niri](https://github.com/YaLTeR/niri) - 滚动式窗口管理器
+- [Ly-sec](http://github.com/ly-sec) - 源自 [Noctalia](https://github.com/noctalia-dev/noctalia-shell) 的壁纸特效
+- [soramanew](https://github.com/soramanew) - 灵感源自 [Caelestia](https://github.com/caelestia-dots/shell)
+- [end-4](https://github.com/end-4) - 灵感源自 [dots-hyprland](https://github.com/end-4/dots-hyprland)
 
-## Star History
+## Star 历史
 
 [![Star History Chart](https://api.star-history.com/svg?repos=AvengeMedia/DankMaterialShell&type=date&legend=top-left)](https://www.star-history.com/#AvengeMedia/DankMaterialShell&type=date&legend=top-left)
 
-## License
+## 许可证
 
-MIT License - See [LICENSE](LICENSE) for details.
+MIT 许可证 - 详见 [LICENSE](LICENSE) 文件。
+```
